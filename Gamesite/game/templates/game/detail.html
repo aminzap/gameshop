@@ -1,0 +1,19 @@
+{% extends 'game/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail page</title>
+</head>
+<body>
+    {% block body %}
+        <h2>{{game_item.id}}</h2>
+        <h2>name: {{game_item.name}}</h2>
+        <h3>price: {{game_item.price}}$</h3>
+        <button type="button" class="btn btn-outline-danger">
+            <a href="{% url 'game:delete_game' game_item.id %}">Delete</a>
+        </button>
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'game/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+
+</head>
+<body>
+    {% block body %}
+        {% for item in game %}
+            <div class="row">
+                <div class="col-md-3 offset-md-2">
+                    <!-- first media root path should be declared-->
+                    <img class="card" height="150px" width="300px" src="/media/{{item.thumbnail}}">
+                </div>
+                <div class="col-md-4">
+                    <h3>name: {{item.name}}</h3>
+                    <h4>price: {{item.price}}$</h4>
+                </div>
+                <div class="col-md-2">
+                    <a href="{% url 'game:detail' item.id%}" type="button" class="btn btn-info" >Info</a>
+                </div>
+            </div>
+
+        {% endfor %}
+    {% endblock %}
+
+</body>
+</html>

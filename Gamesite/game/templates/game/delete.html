@@ -1,0 +1,17 @@
+{% extends 'game/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>delete game</title>
+</head>
+<body>
+    {% block body %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Are you sure to delete {{game.name}}?</h2>
+            <button type="submit"  class="btn btn-danger">Confirm</button>
+        </form>
+    {% endblock %}
+</body>
+</html>

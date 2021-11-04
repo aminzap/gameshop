@@ -1,0 +1,14 @@
+{% extends 'game/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+{% block body %}
+    <img src="{{user.profile.image.url}}">
+    <h2> user name: {{user.username}}</h2>
+{% endblock %}
+</body>
+</html>
