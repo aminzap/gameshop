@@ -13,6 +13,8 @@ def index(request):
     return render(request, 'game/index.html', contex)
 
 
+
+
 def detail(request, game_id):
     game_item = Game.objects.get(pk=game_id)
     contex = {
