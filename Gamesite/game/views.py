@@ -1,26 +1,35 @@
 from django.shortcuts import render, redirect
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 from .forms import GameForm
 from .models import Game
 
 
-# Create your views here.
-def index(request):
-    game = Game.objects.all().order_by('-id')
-    contex = {
-        'game': game,
-    }
-    return render(request, 'game/index.html', contex)
+#functional view
+# def index(request):
+#     game = Game.objects.all().order_by('-id')
+#     contex = {
+#         'game': game,
+#     }
+#     return render(request, 'game/index.html', contex)
+
+#class based view
+class IndexListView(ListView):
+    model = Game
+    template_name = 'game/index.html'
+    context_object_name = 'game'
 
 
-
-
-def detail(request, game_id):
-    game_item = Game.objects.get(pk=game_id)
-    contex = {
-        'game_item': game_item,
-    }
-    return render(request, 'game/detail.html', contex)
+# def detail(request, game_id):
+#     game_item = Game.objects.get(pk=game_id)
+#     contex = {
+#         'game_item': game_item,
+#     }
+#     return render(request, 'game/detail.html', contex)
+class DetailView (DetailView):
+    model=Game
+    template_name='game/detail.html'
 
 
 def add_game(request):
